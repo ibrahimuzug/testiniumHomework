@@ -14,12 +14,10 @@ public class Book {
     @Column
     private String name;
 
-    @Column
     @ManyToOne
     @JoinColumn
     private Category category;
 
-    @Column
     @ManyToOne
     @JoinColumn
     private BookStore bookStore;
