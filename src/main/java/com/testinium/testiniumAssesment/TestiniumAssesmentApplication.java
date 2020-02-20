@@ -1,0 +1,13 @@
+package com.testinium.testiniumAssesment;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TestiniumAssesmentApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TestiniumAssesmentApplication.class, args);
+	}
+
+}
