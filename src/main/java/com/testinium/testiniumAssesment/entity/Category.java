@@ -1,6 +1,7 @@
 package com.testinium.testiniumAssesment.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Category {
@@ -13,6 +14,9 @@ public class Category {
     @Column
     private String name;
 
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private Set<Book> book;
+
     public Integer getId() {
         return id;
     }
@@ -23,6 +27,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Book> getBook() {
+        return book;
+    }
+
+    public void setBook(Set<Book> book) {
+        this.book = book;
     }
 
 

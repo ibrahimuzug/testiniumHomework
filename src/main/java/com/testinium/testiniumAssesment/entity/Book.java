@@ -15,7 +15,14 @@ public class Book {
     private String name;
 
     @Column
-    private String category;
+    @ManyToOne
+    @JoinColumn
+    private Category category;
+
+    @Column
+    @ManyToOne
+    @JoinColumn
+    private BookStore bookStore;
 
     @Column
     private Double price;
@@ -32,12 +39,20 @@ public class Book {
         this.name = name;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public BookStore getBookStore() {
+        return bookStore;
+    }
+
+    public void setBookStore(BookStore bookStore) {
+        this.bookStore = bookStore;
     }
 
     public Double getPrice() {

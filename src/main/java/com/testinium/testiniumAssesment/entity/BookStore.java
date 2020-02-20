@@ -2,6 +2,7 @@ package com.testinium.testiniumAssesment.entity;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class BookStore {
@@ -16,6 +17,9 @@ public class BookStore {
 
     @Column
     private String city;
+
+    @OneToMany(mappedBy = "bookStore", cascade = CascadeType.ALL)
+    private Set<Book> book;
 
     public Integer getId() {
         return id;
@@ -35,6 +39,14 @@ public class BookStore {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public Set<Book> getBook() {
+        return book;
+    }
+
+    public void setBook(Set<Book> book) {
+        this.book = book;
     }
 
 }
