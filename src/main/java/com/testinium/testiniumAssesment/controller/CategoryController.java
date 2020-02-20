@@ -2,6 +2,7 @@ package com.testinium.testiniumAssesment.controller;
 
 
 import com.testinium.testiniumAssesment.dto.CategoryDto;
+import com.testinium.testiniumAssesment.entity.Category;
 import com.testinium.testiniumAssesment.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,11 @@ public class CategoryController {
         return categoryService.getCategoryById(id);
     }
 
+    @PutMapping("/update/{id}")
+    public @ResponseBody
+    Optional<CategoryDto> updateCategoryById(@PathVariable("id", "category" Integer id, String category)){
+        return categoryService.updateCategoryById(id, category);
+    }
 
     @PostMapping("/create")
     public void createCategory(@RequestBody CategoryDto categoryDto) {

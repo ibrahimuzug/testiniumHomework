@@ -19,18 +19,29 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Optional<BookDto> getBookById(Integer id) {
+
+        Double price = bookDao.getPrice();
+
+        Double calculatedPrice = calculateBookPrice(price, exponent);
+
         Optional<Book> bookOptional = bookDao.findById(id);
         if (bookOptional.isPresent()) {
             Book book = bookOptional.get();
             BookDto bookDto = new BookDto();
             bookDto.setName(book.getName());
             bookDto.setCategory(book.getCategory());
-            bookDto.setPrice(book.getPrice());
+            bookDto.setPrice(calculatedPrice);
             return Optional.of(bookDto);
         }
         return null;
     }
 
+    private Double calculateBookPrice(Double bookPrice, Integer exponent) {
+
+        bookPrice = bookPrice * exponent;
+
+        return bookPrice;
+    }
 
     @Override
     public void createBook(BookDto bookDto) {
